@@ -20,11 +20,13 @@ func main() {
 		}
 
 		nbytes, err := io.Copy(os.Stdout, resp.Body)
+		fmt.Println(resp.Status)
 		resp.Body.Close()
 		if err != nil {
 			fmt.Fprintf(os.Stderr, "fetch: %v\n", err)
 			os.Exit(1)
 		}
 		fmt.Printf("%s\n", nbytes)
+
 	}
 }
